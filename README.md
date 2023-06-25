@@ -9,23 +9,29 @@ You can either build a docker image based on `docker/Dockerfile`, or pull from d
 
 # Usage
 The current script uses weights and biases. You may need to set `WANDB_API_KEY` environment variable.
-1. Pretrain experts with `maps/scripts/pretraining/train_expert.py`
-  For example, from the project root directory, you can run:
-  ```bash
-  $ python3 -m maps.scripts.pretraining.train_expert sac model_dir --env-name dmc:Cheetah-run-v1
-  ```
-  This trains a SAC policy on `Cheetah-run` env, and saves the network weights periodically under `model_dir`.
-2. Create a sweep file. The following command creates multiple run configurations over environment domains, set of experts and algorithms
-  \* Before running the following, you need to adjust the expert paths (L6 in `maps/scripts/pretraining/experts.py`) to the one you saved expert models to in the previous step.
-  ```bash
-  $ python3 -m maps.scripts.sweep.sample_sweep
-  ```
-  This generates `sample_sweep.jsonl`
-3. Run training by specifying a line number of the sweep file.
-   For example, to launch the configuration in the first line:
-   ```bash
-   $ python3 -m maps.scripts.train maps/scripts/sweep/sample_sweep.jsonl -l 0
-   ```
+
+### 1. Pretrain experts with `maps/scripts/pretraining/train_expert.py`  
+For example, from the project root directory, you can run:
+```bash
+$ python3 -m maps.scripts.pretraining.train_expert sac model_dir --env-name dmc:Cheetah-run-v1
+```
+This trains a SAC policy on `Cheetah-run` env, and saves the network weights periodically under `model_dir`.
+
+### 2. Create a sweep file.  
+The following command creates multiple run configurations over environment domains, set of experts and algorithms
+
+\* Before running the following, you need to adjust the expert paths (L6 in `maps/scripts/pretraining/experts.py`) to the one you saved expert models to in the previous step.
+```bash
+$ python3 -m maps.scripts.sweep.sample_sweep
+```
+This generates `sample_sweep.jsonl`
+
+  
+### 3. Run training by specifying a line number of the sweep file.  
+ For example, to launch the configuration in the first line:
+ ```bash
+ $ python3 -m maps.scripts.train maps/scripts/sweep/sample_sweep.jsonl -l 0
+ ```
 
 
 # TODOs
