@@ -45,10 +45,10 @@ This generates `sample_sweep.jsonl`
 If you find our work useful in your research, please consider citing the paper as follows:
 
 ``` bibtex
-@inproceedings{liu23,
-    Author    = {Xuefeng Liu and Takuma Yoneda and Chaoqi Wang and Matthew R. Walter and Yuxin Chen},
-    Title     = {Active Policy Improvement from Multiple Black-box Oracles},
-    Booktitle = {Proceedings of the International Conference on Machine Learning (ICML)},
-    Year      = {2023},
+@article{liu2023active,
+  title={Active Policy Improvement from Multiple Black-box Oracles},
+  author={Liu, Xuefeng and Yoneda, Takuma and Wang, Chaoqi and Walter, Matthew R and Chen, Yuxin},
+  journal={arXiv preprint arXiv:2306.10259},
+  year={2023}
 }
 ```
